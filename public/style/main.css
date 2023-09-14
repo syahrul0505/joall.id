@@ -9301,6 +9301,7 @@ footer p {
 
 .accordion-button:focus {
   border-color: transparent !important;
+  box-shadow: none !important;
 }
 
 .navbar-store {
@@ -9340,6 +9341,7 @@ footer p {
 
 .page-home {
   max-width: 750px !important;
+  box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.8), -12px 0 8px -4px rgba(31, 73, 125, 0.8);
 }
 .page-home h5 {
   font-weight: 300;
@@ -9509,6 +9511,7 @@ footer p {
 
 .page-cart {
   max-width: 750px !important;
+  box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.8), -12px 0 8px -4px rgba(31, 73, 125, 0.8);
 }
 .page-cart .store-cart h2 {
   color: #0c0d36;

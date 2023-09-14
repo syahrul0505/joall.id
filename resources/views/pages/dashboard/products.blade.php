@@ -154,13 +154,9 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea name="description" id="editor"></textarea>
-                            </div>
-                        </div>
+                    <div class="form-floating my-3">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="description"></textarea>
+                            <label for="floatingTextarea2">Description Product</label>
                     </div>
                     <div class="row">
                         <div class="col d-flex justify-content-end">
@@ -235,13 +231,9 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea name="description" id="editor2"></textarea>
-                            </div>
-                        </div>
+                    <div class="form-floating my-3">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="edit_description" style="height: 100px" name="description"></textarea>
+                            <label for="edit_description">Description Product</label>
                     </div>
                     <div class="row">
                         <div class="col d-flex justify-content-end">
@@ -258,7 +250,6 @@
 
 @push('addon-scripts')
     <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
     <script>
         function previewImageAdd() {
                 const image = document.querySelector('#image-add');
@@ -289,8 +280,6 @@
 
 
         $(document).ready(function(){
-            var editor = CKEDITOR.replace('editor');
-            var editor2 = CKEDITOR.replace('editor2');
             $('#crudTable').DataTable();
 
             $('#crudTable').on('click','.modalDelete',function(){
@@ -313,7 +302,7 @@
                 $('#edit_stock').val('')
                 $('#edit_category').val('')
                 $('#edit_category').html('')
-                editor2.setData('')
+                $('#edit_description').val('')
 
                 $.get("getProductById/" + productId, function(data, status){
                 $('#product_id').val(data.product.id)
@@ -323,7 +312,7 @@
                 $('#edit_category').val(data.product.categories_id)
                 $('#edit_category').html(data.product.category.name)
                 $('.img-preview-edit').attr('src', `/storage/${data.product.photos}`)
-                editor2.setData(data.product.description)
+                $('#edit_description').val(data.product.description)
                 
                 
                 // Contoh passing data bentuk array
