@@ -1,0 +1,50 @@
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.page-content {
+    margin-top: 100px;
+}
+
+footer {
+    border-top: 1px solid #e4e4e4;
+    margin-top: 150px;
+
+    p {
+        color: #979797;
+    }
+}
+
+.form-control {
+    background-color: #f3f3f3;
+}
+
+.fontStyleMedium {
+    font: normal normal 700 16px/19px Inter;
+}
+
+.divider-border {
+    border-top: 1px dashed black;
+}
+
+.fs-12 {
+    font-size: 12px;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.btn:focus,
+.btn.focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: transparent !important;
+}
+
+.accordion-button:focus {
+    border-color: transparent !important;
+}

@@ -1,0 +1,120 @@
+.component-products {
+    margin-bottom: 20px;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    .products-thumbnail {
+        width: 100%;
+        height: 150px;
+        border-radius: 8px;
+
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+
+        &:hover,
+        &:focus {
+            .products-image {
+                transform: scale(1.1);
+            }
+        }
+
+        .products-image {
+            width: 100%;
+            height: 100%;
+
+            background-color: #ddd;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            transition: all 0.3s ease;
+        }
+    }
+
+    .best-seller {
+        position: relative;
+        color: #ffff;
+        width: 35%;
+        padding: 5px 0px 5px 5px;
+        margin: 10px 0px 0px 0px;
+        overflow: hidden;
+        border-radius: 80px;
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+        @include media-breakpoint-down(md) {
+            margin: 10px 0px 0px 0px;
+            width: 50%;
+            font-size: 12px;
+        }
+    }
+
+    .bestseller-tag {
+        display: flex;
+        align-items: center;
+        padding: 0 5px;
+        grid-gap: 0.2rem;
+        gap: 0.2rem;
+        font-weight: 500;
+        background: rgba(226, 114, 65, 0.25098039215686274);
+        color: #e27241;
+        font-size: 11px;
+        border-radius: 2px;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        width: fit-content;
+    }
+
+    .products-text {
+        color: #0c0d36;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+
+        @include media-breakpoint-down(md) {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    }
+
+    .products-price {
+        font-weight: 500;
+        font-size: 16px;
+        color: #ff7158;
+        margin-top: 20px;
+    }
+
+    .products-subtitle {
+        color: #0c0d36;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    .cardImage {
+        height: 125px;
+        width: 150px;
+        border-radius: 5px;
+        cursor: pointer;
+        border: 1px solid #edebeb;
+    }
+
+    .cardButtonAction {
+        position: absolute;
+        bottom: -11%;
+
+        .addBtn {
+            background: #fff 0 0 no-repeat padding-box;
+            border: 1px solid #d3d3d3;
+            border-radius: 23px;
+            opacity: 1;
+            color: #dc0c10;
+            min-width: 92px;
+            height: 34px;
+            padding: 4px 10px;
+            width: 100%;
+        }
+    }
+}
