@@ -4,7 +4,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,10 +21,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('getProductAddById/{id}', [ProductController::class, 'getProductById']);
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
+    Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('addToCart');
+    Route::get('/orders', [OrderController::class, 'index'])->name('order');
+    
 });
 
 

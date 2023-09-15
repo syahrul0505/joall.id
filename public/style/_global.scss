@@ -2,6 +2,10 @@ body {
     font-family: "Poppins", sans-serif;
 }
 
+h1 {
+    font-size: 2rem !important;
+}
+
 .page-content {
     margin-top: 100px;
 }
@@ -24,7 +28,7 @@ footer {
 }
 
 .divider-border {
-    border-top: 1px dashed black;
+    border-top: 1px dashed rgba(0, 0, 0, 0.5);
 }
 
 .fs-12 {
@@ -33,6 +37,14 @@ footer {
 
 .fs-14 {
     font-size: 14px;
+}
+
+.fs-16 {
+    font-size: 16px;
+}
+
+.fs-18 {
+    font-size: 18px!important;
 }
 
 .btn:focus,
@@ -48,4 +60,13 @@ footer {
 .accordion-button:focus {
     border-color: transparent !important;
     box-shadow: none !important;
+    z-index: 0 !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.opacity-70 {
+    opacity: .7;
 }

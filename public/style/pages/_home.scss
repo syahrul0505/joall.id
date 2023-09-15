@@ -1,6 +1,7 @@
 .page-home {
     max-width: 750px !important;
-    box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.8), -12px 0 8px -4px rgba(31, 73, 125, 0.8);
+    box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.8),
+        -12px 0 8px -4px rgba(31, 73, 125, 0.8);
 
     h5 {
         font-weight: 300;
@@ -31,9 +32,14 @@
         border-radius: 4px;
     }
 
+    .nav-dashboard {
+        background: linear-gradient(89.5deg, rgb(104, 208, 232) 1.5%, rgb(231, 144, 245) 100.5%);
+    }
+
     .referral-card {
         color: #fff;
-        background: url(https://d1xkxcid7icwfl.cloudfront.net/mweb/refer_blue.png) no-repeat;
+        background: url(https://d1xkxcid7icwfl.cloudfront.net/mweb/refer_blue.png)
+            no-repeat;
         background-repeat: no-repeat;
         background-size: 100% 100%;
         @include media-breakpoint-down(md) {
@@ -42,7 +48,7 @@
     }
     .promo-card {
         color: #fff;
-        background: url('/images/food-background.jpg') no-repeat;
+        background: url("/images/food-background.jpg") no-repeat;
         background-repeat: no-repeat;
         background-size: 100% 100%;
         @include media-breakpoint-down(md) {
@@ -56,7 +62,7 @@
 
         .dropdown {
             @include media-breakpoint-down(md) {
-            height: 40px !important;
+                height: 40px !important;
             }
         }
 
@@ -69,23 +75,27 @@
         .arrow-button {
             margin-left: 22rem;
             @include media-breakpoint-down(md) {
-                margin-left: 14rem !important;
+                margin-left: 13rem !important;
                 margin-top: -45px !important;
             }
         }
         .list-category {
             width: 500px;
-            inset: 5px auto auto 30px !important;
+            inset: 5px auto auto 5px !important;
             border: 1px solid red;
             @include media-breakpoint-down(md) {
-                    width: 265px !important;
-                    inset: -11px auto auto 3px !important;
+                width: 265px !important;
+                inset: -11px auto auto 3px !important;
+            }
+        }
+
+        .header-dropdown-category {
+            margin-left: -15px;
+            @include media-breakpoint-down(md) {
+                margin-left: -90px;
             }
         }
     }
-
-
-    
 
     .product-sum {
         font-size: 12px;
@@ -97,7 +107,6 @@
         width: 38%;
         display: flex;
         justify-content: center;
-        z-index: 9999;
         @include media-breakpoint-down(md) {
             width: 94%;
         }
@@ -114,4 +123,8 @@
         margin-left: -12px;
         margin-top: -13px;
     }
+}
+
+.modal-pesan {
+    z-index: 9999;
 }

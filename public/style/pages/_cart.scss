@@ -63,7 +63,7 @@
     max-width: 725px;
     width: 94%;
     background: #fff;
-    z-index: 11;
+    z-index: 999;
 
     @include media-breakpoint-down(sm) {
             max-width: 428px !important;

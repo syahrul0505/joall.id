@@ -8,6 +8,10 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        if(auth()->user()->roles != 'admin') {
+            abort(403);
+        }
+
         return view('pages.dashboard.index');
     }
 }

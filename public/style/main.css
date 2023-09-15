@@ -9257,6 +9257,10 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+h1 {
+  font-size: 2rem !important;
+}
+
 .page-content {
   margin-top: 100px;
 }
@@ -9278,7 +9282,7 @@ footer p {
 }
 
 .divider-border {
-  border-top: 1px dashed black;
+  border-top: 1px dashed rgba(0, 0, 0, 0.5);
 }
 
 .fs-12 {
@@ -9287,6 +9291,14 @@ footer p {
 
 .fs-14 {
   font-size: 14px;
+}
+
+.fs-16 {
+  font-size: 16px;
+}
+
+.fs-18 {
+  font-size: 18px !important;
 }
 
 .btn:focus,
@@ -9302,6 +9314,15 @@ footer p {
 .accordion-button:focus {
   border-color: transparent !important;
   box-shadow: none !important;
+  z-index: 0 !important;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.opacity-70 {
+  opacity: 0.7;
 }
 
 .navbar-store {
@@ -9360,6 +9381,9 @@ footer p {
   background: transparent linear-gradient(90deg, #fef3f2, #fff) 0 0 no-repeat padding-box;
   border-radius: 4px;
 }
+.page-home .nav-dashboard {
+  background: linear-gradient(89.5deg, rgb(104, 208, 232) 1.5%, rgb(231, 144, 245) 100.5%);
+}
 .page-home .referral-card {
   color: #fff;
   background: url(https://d1xkxcid7icwfl.cloudfront.net/mweb/refer_blue.png) no-repeat;
@@ -9401,19 +9425,27 @@ footer p {
 }
 @media (max-width: 991.98px) {
   .page-home .recommended-home .arrow-button {
-    margin-left: 14rem !important;
+    margin-left: 13rem !important;
     margin-top: -45px !important;
   }
 }
 .page-home .recommended-home .list-category {
   width: 500px;
-  inset: 5px auto auto 30px !important;
+  inset: 5px auto auto 5px !important;
   border: 1px solid red;
 }
 @media (max-width: 991.98px) {
   .page-home .recommended-home .list-category {
     width: 265px !important;
     inset: -11px auto auto 3px !important;
+  }
+}
+.page-home .recommended-home .header-dropdown-category {
+  margin-left: -15px;
+}
+@media (max-width: 991.98px) {
+  .page-home .recommended-home .header-dropdown-category {
+    margin-left: -90px;
   }
 }
 .page-home .product-sum {
@@ -9425,7 +9457,6 @@ footer p {
   width: 38%;
   display: flex;
   justify-content: center;
-  z-index: 9999;
 }
 @media (max-width: 991.98px) {
   .page-home .footer {
@@ -9443,6 +9474,10 @@ footer p {
   color: #fefefe;
   margin-left: -12px;
   margin-top: -13px;
+}
+
+.modal-pesan {
+  z-index: 9999;
 }
 
 .page-details h5 {
@@ -9592,7 +9627,7 @@ footer p {
   max-width: 725px;
   width: 94%;
   background: #fff;
-  z-index: 11;
+  z-index: 999;
 }
 @media (max-width: 767.98px) {
   .page-cart .pageFooter {
@@ -9887,6 +9922,71 @@ footer p {
   background: lavender;
 }
 
+.page-profile {
+  max-width: 750px !important;
+  min-height: 97vh;
+  box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.8), -12px 0 8px -4px rgba(31, 73, 125, 0.8);
+}
+.page-profile .custom-button-class {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 3rem;
+  padding: 0 5px;
+  background: transparent linear-gradient(106deg, #fd4b48, #e2171a) 0 0 no-repeat padding-box;
+  border-radius: 3rem;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  margin: 0.5rem 0;
+  font-size: 16px;
+  box-shadow: 3px 3px 6px #ffb7b7;
+  white-space: nowrap;
+  z-index: 10;
+  overflow: hidden;
+}
+.page-profile .user-initial__block {
+  height: 70px;
+  width: 70px;
+  background-color: rgb(187, 97, 255);
+  border-radius: 50%;
+  font-size: 30px;
+}
+.page-profile .col50 {
+  flex: 0 0 50%;
+}
+@media (max-width: 991.98px) {
+  .page-profile .col50 {
+    flex: 0 0 65%;
+  }
+}
+
+.page-pesanan-saya {
+  max-width: 750px !important;
+  min-height: 97vh;
+  box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.8), -12px 0 8px -4px rgba(31, 73, 125, 0.8);
+}
+.page-pesanan-saya .cardContainer {
+  margin: 10px auto;
+  padding: 10px 50px;
+  background: 0px 0px no-repeat padding-box padding-box rgb(255, 255, 255);
+  box-shadow: rgba(188, 188, 188, 0.4) 1px 4px 30px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 60%;
+  height: auto;
+}
+.page-pesanan-saya .waiting-tag {
+  background: rgba(255, 108, 0, 0.1803921569) 0 0 no-repeat padding-box !important;
+}
+.page-pesanan-saya .text-mediumtag, .page-pesanan-saya .text-tag {
+  text-align: center;
+  opacity: 1;
+  border-radius: 0.2rem;
+  border: 0.5px solid rgba(253, 75, 72, 0.5019607843);
+  font-weight: lighter;
+}
+
 .component-categories {
   background: #f4f4f4;
   border-radius: 8px;
@@ -9988,6 +10088,12 @@ footer p {
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
+}
+@media (max-width: 991.98px) {
+  .component-products .products-subtitle {
+    font-size: 12px;
+    margin-top: 5px;
+  }
 }
 .component-products .cardImage {
   height: 125px;

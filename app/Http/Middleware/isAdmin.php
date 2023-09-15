@@ -19,8 +19,8 @@ class isAdmin
         if(auth()->user() && auth()->user()->roles == 'admin')
         {
             return $next($request);
+        } else {
+            abort(403);
         }
-        
-        return redirect('/');
     }
 }

@@ -1,0 +1,27 @@
+.page-pesanan-saya {
+    max-width: 750px !important;
+    min-height: 97vh;
+    box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.8), -12px 0 8px -4px rgba(31, 73, 125, 0.8);   
+
+    .cardContainer {
+        margin: 10px auto;
+        padding: 10px 50px;
+        background: 0px 0px no-repeat padding-box padding-box rgb(255, 255, 255);
+        box-shadow: rgba(188, 188, 188, 0.4) 1px 4px 30px;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 60%;
+        height: auto;
+    }
+    .waiting-tag {
+        background: rgba(255,108,0,.1803921568627451) 0 0 no-repeat padding-box!important;
+    }
+
+    .text-mediumtag, .text-tag {
+        text-align: center;
+        opacity: 1;
+        border-radius: 0.2rem;
+        border: 0.5px solid rgba(253,75,72,.5019607843137255);
+        font-weight: lighter;
+    }
+}
