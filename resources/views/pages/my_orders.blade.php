@@ -30,7 +30,7 @@
                     <div class=" cardContainer mb-4 fs-16">
                         <div class="flex-column d-flex justify-content-between">
                             <div class="active-order-img text-center">
-                                <img src="images/order-plate1.png" class="order-image" alt="default_image" style="opacity: 1; transition: opacity 0.5s ease 0s;">
+                                <img src="{{ asset('images/order-plate1.png') }}" class="order-image" alt="default_image" style="opacity: 1; transition: opacity 0.5s ease 0s;">
                             </div>
                             <div class=" d-flex justify-content-between  px-10 py-3">
                                 <div class="d-flex flex-1 flex-column gap-1">

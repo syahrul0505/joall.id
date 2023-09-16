@@ -59,7 +59,7 @@
                     <div class="custom-button-class gap-2 pointer" id="login">
                         <div class="d-flex align-items-center gap-2">
                             Masuk Sekarang
-                            <img src="/images/arrow-right.webp" width="7" height="13" style="opacity: 1; transition: opacity 0.5s ease 0s;">
+                            <img src="{{ asset('images/arrow-right.webp') }}" width="7" height="13" style="opacity: 1; transition: opacity 0.5s ease 0s;">
                         </div>
                     </div>
                 </div>
@@ -69,29 +69,29 @@
             <span class="fs-18 fw-500">Menu</span>
             <div class="d-flex justify-content-between align-items-center pointer" id="pesanan-saya">
                 <div class="d-flex align-items-center gap-3">
-                    <img src="images/myorders-icon.png" alt="Pesanan Saya" width="18" height="18" style="opacity: 1; transition: opacity 0.5s ease 0s;">
+                    <img src="{{ asset('images/myorders-icon.png') }}" alt="Pesanan Saya" width="18" height="18" style="opacity: 1; transition: opacity 0.5s ease 0s;">
                     <div class="font-weight-bold">
                         Pesanan Saya
                     </div>
                 </div>
                 <div class="d-flex align-items-center gap-3">
-                    <span class="fw-500 d-none d-md-block">Lihat Detail</span> <img src="images/arrow-right-gray.webp" alt="arrow" width="9" height="16" style="opacity: 1; transition: opacity 0.5s ease 0s;">
+                    <span class="fw-500 d-none d-md-block">Lihat Detail</span> <img src="{{ asset('images/arrow-right-gray.webp') }}" alt="arrow" width="9" height="16" style="opacity: 1; transition: opacity 0.5s ease 0s;">
                 </div>
             </div>
             <div class="d-flex justify-content-between align-items-center pointer" id="syarat_ketentuan">
                 <div class="d-flex align-items-center gap-3">
-                    <img src="/images/help.webp" alt="Syarat dan Ketentuan" width="18" height="18" style="opacity: 1; transition: opacity 0.5s ease 0s;">
+                    <img src="{{ asset('images/help.webp') }}" alt="Syarat dan Ketentuan" width="18" height="18" style="opacity: 1; transition: opacity 0.5s ease 0s;">
                     <div class="font-weight-bold">
                         Syarat dan Ketentuan
                     </div>
                 </div>
                 <div class="d-flex align-items-center gap-3">
-                    <span class="fw-500 d-none d-md-block">Lihat Detail</span> <img src="images/arrow-right-gray.webp" alt="arrow" width="9" height="16" style="opacity: 1; transition: opacity 0.5s ease 0s;">
+                    <span class="fw-500 d-none d-md-block">Lihat Detail</span> <img src="{{ asset('images/arrow-right-gray.webp') }}" alt="arrow" width="9" height="16" style="opacity: 1; transition: opacity 0.5s ease 0s;">
                 </div>
             </div>
             <div class="d-flex justify-content-between align-items-center pointer fs-16 fw-600" id="keluar">
                 <div class="d-flex align-items-center gap-3">
-                    <img src="/images/logout.webp" alt="Keluar" width="18" height="18" style="opacity: 1; transition: opacity 0.5s ease 0s;">
+                    <img src="{{ asset('images/logout.webp') }}" alt="Keluar" width="18" height="18" style="opacity: 1; transition: opacity 0.5s ease 0s;">
                     <div class="text-danger font-weight-bold">
                             Keluar
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">
@@ -100,7 +100,7 @@
                     </div>
                 </div>
                 <div class="d-flex align-items-center gap-3">
-                    <img src="images/arrow-right-gray.webp" alt="arrow" width="9" height="16" style="opacity: 1; transition: opacity 0.5s ease 0s;">
+                    <img src="{{ asset('images/arrow-right-gray.webp') }}" alt="arrow" width="9" height="16" style="opacity: 1; transition: opacity 0.5s ease 0s;">
                 </div>
             </div>
         </div>

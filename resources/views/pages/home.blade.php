@@ -24,7 +24,7 @@
                     @auth
                     <h4 class="font-weight-bold text-center">Halo, {{ auth()->user()->name }}</h4>
                     <div class="p-1 rounded bg-warning text-white font-weight-bold" style="border: 2px solid orange;">
-                        <img src="/images/bronze-medal.png" width="30" height="30" alt="">
+                        <img src="{{ asset('images/bronze-medal.png') }}" width="30" height="30" alt="">
                         Bronze Membership
                     </div>
                     @endauth
@@ -36,9 +36,9 @@
                         <span  class="nav-dashboard rounded p-2 text-white font-weight-bold">Dashboard</span>
                     </div>
                 @endcan
-                <img src="/images/bell2.png" class="mx-2" alt="bell" width="28" height="28" style="opacity: 1; transition: opacity 0.5s ease 0s;">
+                <img src="{{ asset('images/bell2.png') }}" class="mx-2" alt="bell" width="28" height="28" style="opacity: 1; transition: opacity 0.5s ease 0s;">
                 <a href="{{ route('profile') }}">
-                    <img src="/images/profile3.png" width="28" height="28" style="opacity: 1; transition: opacity 0.5s ease 0s;">
+                    <img src="{{ asset('images/profile3.png') }}" width="28" height="28" style="opacity: 1; transition: opacity 0.5s ease 0s;">
                 </a>
             </div>
         </div>
@@ -67,7 +67,7 @@
                         <div class="dropdown">
                             <button type="button" class="btn mb-0 border-0 bg-transparent text-danger font-weight-bold d-block w-100 button-dropdown"  data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="header-dropdown-category">List Of Category</span>
-                                <img src="images/down-arrow.png" class="arrow-button" width="15" height="20" alt="" style="margin-top: 3px;">
+                                <img src="{{ asset('images/down-arrow.png') }}" class="arrow-button" width="15" height="20" alt="" style="margin-top: 3px;">
                             </button>
                                 <ul class="dropdown-menu list-category">
                                     @foreach ($categories as $category)
@@ -89,7 +89,7 @@
                 </div>
             </div>
             <div class="col-2">
-                <img src="/images/search.png" alt="search" width="25" height="25" style="margin-top: 10px;">
+                <img src="{{ asset('images/search.png') }}" alt="search" width="25" height="25" style="margin-top: 10px;">
             </div>
         </div>
 
