@@ -9257,6 +9257,40 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.bg-image {
+  /* The image used */
+  background-image: url("/images/background1.jpg");
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -999;
+  display: block;
+  background-image: url("/images/background1.jpg");
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
 h1 {
   font-size: 2rem !important;
 }
@@ -9286,19 +9320,27 @@ footer p {
 }
 
 .fs-12 {
-  font-size: 12px;
+  font-size: 12px !important;
 }
 
 .fs-14 {
-  font-size: 14px;
+  font-size: 14px !important;
 }
 
 .fs-16 {
-  font-size: 16px;
+  font-size: 16px !important;
 }
 
 .fs-18 {
   font-size: 18px !important;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.bg-custom-gradient {
+  background: linear-gradient(90deg, rgb(36, 34, 59) 0%, rgba(9, 56, 121, 0.8715861345) 0%, rgba(0, 212, 255, 0.1292892157) 92%);
 }
 
 .btn:focus,
@@ -9363,10 +9405,39 @@ footer p {
 .page-home {
   max-width: 750px !important;
   box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.8), -12px 0 8px -4px rgba(31, 73, 125, 0.8);
+  /* vertical line */
 }
 .page-home h5 {
   font-weight: 300;
   margin-bottom: 15px;
+}
+.page-home h1 {
+  font-family: "Open Sans", sans-serif;
+  text-align: left;
+  line-height: 2;
+}
+.page-home .header-title-food {
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.page-home .header-title-food::after {
+  content: "";
+  position: absolute;
+  background-color: #85C1E9;
+  width: 3px;
+  height: 50%;
+  bottom: 0;
+  right: -8px;
+}
+.page-home .header-title-food::before {
+  content: "";
+  position: absolute;
+  background-color: #85C1E9;
+  width: 40%;
+  height: 3px;
+  bottom: 0;
+  right: -8px;
 }
 .page-home .store-trend-categories {
   margin-top: 30px;
@@ -9378,7 +9449,7 @@ footer p {
   margin-right: 0.5rem;
 }
 .page-home .open-info {
-  background: transparent linear-gradient(90deg, #fef3f2, #fff) 0 0 no-repeat padding-box;
+  background: linear-gradient(90deg, rgb(36, 34, 59) 0%, rgba(9, 56, 121, 0.8715861345) 0%, rgba(0, 212, 255, 0.1292892157) 92%);
   border-radius: 4px;
 }
 .page-home .nav-dashboard {
@@ -9386,7 +9457,7 @@ footer p {
 }
 .page-home .referral-card {
   color: #fff;
-  background: url(https://d1xkxcid7icwfl.cloudfront.net/mweb/refer_blue.png) no-repeat;
+  background: url("/images/refer_blue.png") no-repeat;
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -9478,6 +9549,14 @@ footer p {
 
 .modal-pesan {
   z-index: 9999;
+}
+.modal-pesan .checkbox-addons {
+  margin-left: 0.5rem !important;
+}
+@media (max-width: 991.98px) {
+  .modal-pesan .btn-add-cart {
+    width: 150px !important;
+  }
 }
 
 .page-details h5 {
@@ -9605,6 +9684,9 @@ footer p {
 }
 .page-cart .store-cart .table-cart .btn-remove-cart:not(:disabled):not(.disabled):active:focus, .page-cart .store-cart .table-cart .btn-remove-cart:not(:disabled):not(.disabled).active:focus, .show > .page-cart .store-cart .table-cart .btn-remove-cart.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+.page-cart .border-gray-cart {
+  border: 2px solid gray;
 }
 .page-cart .btnGroup {
   display: flex;
@@ -9924,7 +10006,7 @@ footer p {
 
 .page-profile {
   max-width: 750px !important;
-  min-height: 97vh;
+  min-height: 100vh;
   box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.8), -12px 0 8px -4px rgba(31, 73, 125, 0.8);
 }
 .page-profile .custom-button-class {
@@ -9940,7 +10022,6 @@ footer p {
   color: #fff;
   margin: 0.5rem 0;
   font-size: 16px;
-  box-shadow: 3px 3px 6px #ffb7b7;
   white-space: nowrap;
   z-index: 10;
   overflow: hidden;
@@ -9951,6 +10032,28 @@ footer p {
   background-color: rgb(187, 97, 255);
   border-radius: 50%;
   font-size: 30px;
+}
+@media (max-width: 991.98px) {
+  .page-profile .user-initial__block {
+    height: 45px;
+    width: 45px;
+    font-size: 20px;
+  }
+}
+@media (max-width: 991.98px) {
+  .page-profile .user-name {
+    font-size: 16px !important;
+  }
+}
+@media (max-width: 991.98px) {
+  .page-profile .user-no-hp {
+    font-size: 12px !important;
+  }
+}
+@media (max-width: 991.98px) {
+  .page-profile .btn-ubah {
+    font-size: 12px !important;
+  }
 }
 .page-profile .col50 {
   flex: 0 0 50%;
@@ -9976,6 +10079,12 @@ footer p {
   width: 60%;
   height: auto;
 }
+@media (max-width: 991.98px) {
+  .page-pesanan-saya .cardContainer {
+    width: 345px !important;
+    padding: 10px 20px !important;
+  }
+}
 .page-pesanan-saya .waiting-tag {
   background: rgba(255, 108, 0, 0.1803921569) 0 0 no-repeat padding-box !important;
 }
@@ -9985,6 +10094,11 @@ footer p {
   border-radius: 0.2rem;
   border: 0.5px solid rgba(253, 75, 72, 0.5019607843);
   font-weight: lighter;
+}
+@media (max-width: 991.98px) {
+  .page-pesanan-saya .order-image {
+    width: 300px;
+  }
 }
 
 .component-categories {

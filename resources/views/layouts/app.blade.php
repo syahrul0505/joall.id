@@ -14,7 +14,8 @@
     {{-- End Navbar --}}
 
     {{-- Content --}}
-    @yield('content')
+    <div class="background-image"></div>
+      @yield('content')
     {{-- End Content --}}
 
     {{-- Footer --}}

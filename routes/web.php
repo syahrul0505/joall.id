@@ -24,9 +24,11 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('getProductAddById/{id}', [ProductController::class, 'getProductById']);
 
+
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
     Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('addToCart');
+    Route::post('/delete-cart/{id}', [CartController::class, 'deleteCart'])->name('deleteCart');
     Route::get('/orders', [OrderController::class, 'index'])->name('order');
     
 });

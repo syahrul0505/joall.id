@@ -5,7 +5,7 @@
 @endsection
 
 @section('content') 
-    <div class="container page-pesanan-saya">
+    <div class="container page-pesanan-saya bg-white">
 
         <div class="row mt-3">
             <div class="col-12 d-flex flex-row shadow align-items-center">
@@ -30,7 +30,7 @@
                     <div class=" cardContainer mb-4 fs-16">
                         <div class="flex-column d-flex justify-content-between">
                             <div class="active-order-img text-center">
-                                <img src="images/order-plate1.png" alt="default_image" style="opacity: 1; transition: opacity 0.5s ease 0s;">
+                                <img src="images/order-plate1.png" class="order-image" alt="default_image" style="opacity: 1; transition: opacity 0.5s ease 0s;">
                             </div>
                             <div class=" d-flex justify-content-between  px-10 py-3">
                                 <div class="d-flex flex-1 flex-column gap-1">

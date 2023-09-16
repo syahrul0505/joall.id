@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="container page-cart">
+    <div class="container page-cart bg-white">
         @section('nav-title')
             Cart
         @endsection
@@ -28,33 +28,62 @@
                             $total = 0;
                         @endphp
                         @forelse ($carts as $cart)
-                            <div class="row mt-3">
+                            <div class="row mt-3 border-gray-cart shadow rounded">
                                 <div class="col-9">
                                     <div class="d-flex flex-row my-3">
-                                        <div class="col-5">
+                                        <div class="col-8 fs-12">
                                             {{ $cart->product->name }}
+                                            @if ($addons->count() > 0)
+                                                <div class="d-flex flex-row gap-2 mt-3">
+                                                    <p>Addon: </p>
+                                                    @foreach ($addons as $addon)
+                                                        @if ($cart->id == $addon->cart_id)
+                                                            <p>{{ $addon->addon->name }},</p>
+                                                        @endif
+                                                    @endforeach
+                                                </div>
+                                                <button type="button" class="btn btn-primary fs-12 p-1" data-bs-toggle="modal" data-bs-target="#editCart" data-productid={{ $cart->id }}>
+                                                    Ubah
+                                                </button>
+                                                <button type="button" class="btn btn-danger fs-12 p-1" data-bs-toggle="modal" data-bs-target="#editCart" data-productid={{ $cart->id }}>
+                                                    Delete
+                                                </button>
+                                            @endif
                                         </div>
-                                        <div class="col-7 ml-1">
+                                        <div class="col-4 ml-1 d-flex justify-content-center">
                                             <div class="input-group">
-                                                    <button type="button" class="quantity-left-minus btn btn-danger"  data-type="minus" data-field="">
+                                                    {{-- <button type="button" class="btn" onclick="deleteCart({{ $cart->id }})"  data-type="minus">
                                                     <span class="">-</span>
-                                                    </button>
-                                                <input type="number" id="quantity" name="quantity" class="border-1 w-25 text-center" value="{{ $cart->quantity }}" min="1" max="100">
-                                                    <button type="button" class="quantity-right-plus btn btn-success" data-type="plus" data-field="">
+                                                    </button> --}}
+                                                <input type="number" id="quantity{{ $cart->id }}" name="quantity" class="form-control w-25 text-center quantity" value="{{ $cart->quantity }}" disabled>
+                                                    {{-- <button type="button" class="quantity-right-plus btn" data-type="plus" data-id="{{ $cart->id }}">
                                                         <span class="">+</span>
-                                                    </button>
+                                                    </button> --}}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-3 mt-3">
+                                <div class="col-3 mt-3 fs-12">
                                     <p>Rp. {{ number_format($cart->product->price * $cart->quantity) }}</p>
+                                    @php
+                                        $addon_total = 0;
+                                    @endphp
+                                    @foreach ($addons as $addon)
+                                        @if ($addon->cart_id == $cart->id)
+                                            @php
+                                                $addon_total += $addon->addon->price
+                                            @endphp
+                                        @endif
+                                    @endforeach
+                                    @if ($addon_total > 0)
+                                        <p>Rp. {{ number_format($addon_total) }}</p>
+                                    @endif
                                 </div>
                             </div>
 
                             @php
                                 $sub_total = $cart->product->price * $cart->quantity;
-                                $total += $sub_total;
+                                $total += $sub_total + $addon_total;
                             @endphp
                         @empty
                             <div class="row mt-3">
@@ -139,41 +168,153 @@
             </div>
         </div>
     </div>
+
+
+    {{-- Modal Pesan --}}
+    <!-- Modal -->
+        <div class="modal fade" id="editCart" tabindex="-1" aria-labelledby="editCartLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content modal-pesan">
+                    <div class="modal-header bg-custom-gradient text-white">
+                        <h1 class="modal-title fs-5" id="editCartLabel">Pesan Sekarang</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="" method="POST" id="form-add">
+                        <div class="modal-body">
+                                @csrf
+                                <input type="hidden" name="product_id" id="product_id">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                                <div class="form-group">
+                                                    <img alt="" style="max-height: 200px; max-width: 200px;" id='img-product-add'>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="name">Nama Product</label>
+                                                    <input type="name" class="form-control" id="name" disabled>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="price">Harga Product</label>
+                                                    <input type="price" class="form-control" id="price" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="deskripsi">Deskripsi Product</label>
+                                                    <textarea class="form-control" id="deskripsi" rows="3" disabled></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <span class="fs-20 font-weight-bold">Tambahan Menu</span>
+
+                                                    <div class="row mt-3">
+                                                        <div class="card">
+                                                            <span class="fs-14">Pilih Menu (opsional)</span>
+                                                            <div class="card-body">
+                                                                @forelse ($addons as $addon)
+                                                                    <div class="row">
+                                                                        <div class="col-6 fs-14">{{ $addon->name }}</div>
+                                                                        <div class="col-6 d-flex flex-row justify-content-end">
+                                                                            <div class="form-check">
+                                                                                <label class="form-check-label fs-14" for="flexCheckDefault">
+                                                                                    Rp. {{ number_format($addon->price) }}
+                                                                                </label>
+                                                                                <input class="form-check-input checkbox-addons pointer" type="checkbox" value="{{ $addon->id }}" id="flexCheckDefault" name="addons[]">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                @empty
+                                                                    <div class="row">
+                                                                        <div class="col-12"><p>Tidak ada Menu</p></div>
+                                                                    </div>
+                                                                @endforelse
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="row">
+                                    <div class="col-12 d-flex flex-row justify-content-between mb-3">
+                                        <div class="d-flex align-items-center gap-2 m-0">
+                                            <label for="qty">Qty : </label>
+                                            <input type="number" min="0" class="w-25" id="qty" name="quantity" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary my-2 btn-add-cart">Add to Cart</button>
+                                    </div>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    {{-- End Modal Pesan --}}
 @endsection
 
 @push('scripts')
+<script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script>
+
+        function deleteCart(id) {
+            var quantity = parseInt($(`#quantity${id}`).val());
+            
+            // If is not undefined
+            if(quantity == 1) {
+                    axios.post('/delete-cart/' + id);
+                    location.reload();
+            }
+            // Increment
+            if(quantity > 1){
+                $(`#quantity${id}`).val(quantity - 1);
+            }
+        }
         $(document).ready(function(){
-            var quantitiy=0;
+            var quantitiy = 0 ;
             $('.quantity-right-plus').click(function(e){
                     
                     // Stop acting like a button
                     e.preventDefault();
                     // Get the field name
-                    var quantity = parseInt($('#quantity').val());
+                    let cart_id = $(this).data('id');
+                    var quantity = parseInt($(`#quantity${cart_id}`).val());
                     
                     // If is not undefined
                         
-                        $('#quantity').val(quantity + 1);
+                        $(`#quantity${cart_id}`).val(quantity + 1);
 
                     
                         // Increment
                     
             });
 
-            $('.quantity-left-minus').click(function(e){
-                // Stop acting like a button
-                e.preventDefault();
-                // Get the field name
-                var quantity = parseInt($('#quantity').val());
+            // $('.quantity-left-minus').click(function(e){
+            //     // Stop acting like a button
+            //     e.preventDefault();
+            //     // Get the field name
+            //     let cart_id = $(this).data('id');
+            //     var quantity = parseInt($(`#quantity${cart_id}`).val());
                 
-                // If is not undefined
-            
-                    // Increment
-                    if(quantity>0){
-                    $('#quantity').val(quantity - 1);
-                    }
-            });
+            //     // If is not undefined
+            //         if(quantitiy == 1) {
+            //             axios.post('/delete-cart/', 2);
+            //         }
+            //         // Increment
+            //         if(quantity>0){
+            //             $(`#quantity${cart_id}`).val(quantity - 1);
+            //         }
+            // });
         });
     </script>
 @endpush

@@ -13,16 +13,16 @@ class Carts extends Migration
      */
     public function up()
     {
-        Schema::create('carts', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('product_id');
-            $table->integer('quantity');
-            $table->foreign("user_id")->references("id")->on("users");
-            $table->foreign("product_id")->references("id")->on("product_id");
-            $table->softDeletes();
-            $table->timestamps();
-        });
+        // Schema::create('carts', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->unsignedBigInteger('user_id');
+        //     $table->unsignedBigInteger('product_id');
+        //     $table->integer('quantity');
+        //     $table->foreign("user_id")->references("id")->on("users");
+        //     $table->foreign("product_id")->references("id")->on("product_id");
+        //     $table->softDeletes();
+        //     $table->timestamps();
+        // });
     }
 
     /**

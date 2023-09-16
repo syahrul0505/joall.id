@@ -8,6 +8,41 @@
         margin-bottom: 15px;
     }
 
+    h1 {
+        font-family: 'Open Sans', sans-serif;
+        text-align: left;
+        line-height: 2;
+    }
+    .header-title-food {
+        position: relative;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    /* vertical line */
+    .header-title-food::after {
+        content:'';
+        position: absolute;
+        background-color: #85C1E9;
+        width: 3px;
+        height: 50%;
+        bottom: 0;
+        right: -8px;
+    
+    }
+
+    .header-title-food::before {
+        content:'';
+        position: absolute;
+        background-color: #85C1E9;
+        width: 40%;
+        height: 3px;
+        bottom: 0;
+        right: -8px;
+    }
+
+    
+
     .store-trend-categories {
         margin-top: 30px;
     }
@@ -27,8 +62,7 @@
     }
 
     .open-info {
-        background: transparent linear-gradient(90deg, #fef3f2, #fff) 0 0
-            no-repeat padding-box;
+        background: linear-gradient(90deg, rgba(36,34,59,1) 0%, rgba(9,56,121,0.8715861344537815) 0%, rgba(0,212,255,0.1292892156862745) 92%);
         border-radius: 4px;
     }
 
@@ -38,7 +72,7 @@
 
     .referral-card {
         color: #fff;
-        background: url(https://d1xkxcid7icwfl.cloudfront.net/mweb/refer_blue.png)
+        background: url("/images/refer_blue.png")
             no-repeat;
         background-repeat: no-repeat;
         background-size: 100% 100%;
@@ -126,5 +160,13 @@
 }
 
 .modal-pesan {
+    .checkbox-addons {
+        margin-left: 0.5rem !important;
+    }
+    .btn-add-cart {
+        @include media-breakpoint-down(md) {
+            width: 150px !important;
+        }
+    }
     z-index: 9999;
 }

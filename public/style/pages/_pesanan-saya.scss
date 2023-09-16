@@ -12,6 +12,10 @@
         cursor: pointer;
         width: 60%;
         height: auto;
+        @include media-breakpoint-down(md) {
+            width: 345px !important;
+            padding: 10px 20px !important;
+        }
     }
     .waiting-tag {
         background: rgba(255,108,0,.1803921568627451) 0 0 no-repeat padding-box!important;
@@ -23,5 +27,11 @@
         border-radius: 0.2rem;
         border: 0.5px solid rgba(253,75,72,.5019607843137255);
         font-weight: lighter;
+    }
+
+    .order-image{
+        @include media-breakpoint-down(md) {
+            width: 300px;
+        }
     }
 }
